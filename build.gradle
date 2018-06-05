@@ -1,0 +1,56 @@
+group 'com.meituan.hotel'
+
+version '1.0'
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply from: file('leo.gradle')
+apply plugin: 'PrintPlugin'
+
+sourceCompatibility = 1.8
+//自定义 MANIFEST.MF
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url uri('local-repos')
+        }
+
+    }
+    dependencies {
+        classpath gradleApi()
+        classpath localGroovy()
+        classpath 'com.meituan.hotel:PrintTask:3.0'
+    }
+}
+repositories {
+    mavenCentral()
+}
+//leo {
+//    name = '宋鹏飞'
+//    age = '28'
+//    address = '山西孝义'
+//}
+
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile gradleApi()
+    compile localGroovy()
+
+}
+
+task write(type: com.meituan.hotel.PrintTask) {
+    println("print init")
+}
+
+task dpendencieTask(type: com.meituan.hotel.DependenciesTask){
+    task='build'
+}
+
+
+

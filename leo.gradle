@@ -1,0 +1,31 @@
+
+task a << {
+    println('执行a')
+}
+a.dependsOn('b', 'd')
+
+task b(dependsOn: ['c']) {
+    println('初始化b')
+}
+
+task c {
+    println('初始化c')
+}
+
+c << {
+    println('执行c')
+}
+task d {
+
+}
+
+//gradle.taskGraph.afterTask { task ->
+//    println("task=========================================" + task.project.name + ",================" + task.name)
+//}
+project.setDescription("自定义的leo")
+//project.setProperty("leo-name","宋鹏飞")
+ext {
+    VERSION_CODE = '10.3'
+    VERSION_NAME = '张晓君'
+}
+

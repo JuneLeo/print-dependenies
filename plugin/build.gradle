@@ -1,0 +1,26 @@
+group 'com.meituan.hotel'
+version '1.0'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply from:file('upload.gradle')
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.google.code.gson:gson:2.8.2'
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: uri('../local-repos'))
+        pom.groupId = 'com.meituan.hotel' // 组名
+        pom.artifactId = 'PrintTask' // 插件名
+        pom.version = '3.0' // 版本号
+    }
+}
